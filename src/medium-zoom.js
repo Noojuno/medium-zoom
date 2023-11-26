@@ -96,13 +96,16 @@ const mediumZoom = (selector, options = {}) => {
   const clone = (options = {}) => mediumZoom({ ...zoomOptions, ...options })
 
   const attach = (...selectors) => {
-    const newImages = selectors.reduce(
-      (imagesAccumulator, currentSelector) => [
+    const newImages = selectors.reduce((imagesAccumulator, currentSelector) => {
+      const res = [
         ...imagesAccumulator,
         ...getImagesFromSelector(currentSelector),
-      ],
-      []
-    )
+      ]
+
+      console.log(res)
+
+      return res
+    }, [])
 
     newImages
       .filter(newImage => images.indexOf(newImage) === -1)
