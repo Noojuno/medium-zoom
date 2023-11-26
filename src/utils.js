@@ -1,4 +1,5 @@
-export const isSupported = node => node.tagName === 'IMG'
+export const isSupported = node =>
+  node.tagName === 'IMG' || node.tagName === 'SVG'
 
 /* eslint-disable-next-line no-prototype-builtins */
 export const isNodeList = selector => NodeList.prototype.isPrototypeOf(selector)
@@ -12,6 +13,8 @@ export const isSvg = image => {
 
 export const getImagesFromSelector = selector => {
   try {
+    console.log('gettimg images')
+
     if (Array.isArray(selector)) {
       return selector.filter(isSupported)
     }
