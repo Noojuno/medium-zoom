@@ -13,8 +13,6 @@ export const isSvg = image => {
 
 export const getImagesFromSelector = selector => {
   try {
-    console.log('gettimg images')
-
     if (Array.isArray(selector)) {
       return selector.filter(isSupported)
     }
@@ -55,7 +53,7 @@ export const createOverlay = background => {
 
 export const cloneTarget = template => {
   const { top, left, width, height } = template.getBoundingClientRect()
-  const clone = template.cloneNode()
+  const clone = template.cloneNode(true)
   const scrollTop =
     window.pageYOffset ||
     document.documentElement.scrollTop ||
