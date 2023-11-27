@@ -1,5 +1,5 @@
 export const isSupported = node =>
-  node.tagName === 'IMG' || node.tagName === 'SVG'
+  node.tagName === 'IMG' || node.tagName === 'svg'
 
 /* eslint-disable-next-line no-prototype-builtins */
 export const isNodeList = selector => NodeList.prototype.isPrototypeOf(selector)
