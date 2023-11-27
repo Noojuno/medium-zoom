@@ -319,7 +319,7 @@ const mediumZoom = (selector, options = {}) => {
         document.body.scrollTop ||
         0
       isAnimating = true
-      active.zoomed = cloneTarget(active.original)
+      active.zoomed = cloneTarget(active.original, zoomOptions.keepId)
 
       document.body.appendChild(overlay)
 
@@ -533,6 +533,7 @@ const mediumZoom = (selector, options = {}) => {
     scrollOffset: 40,
     container: null,
     template: null,
+    keepId: false,
     ...zoomOptions,
   }
 

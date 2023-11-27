@@ -51,7 +51,7 @@ export const createOverlay = background => {
   return overlay
 }
 
-export const cloneTarget = template => {
+export const cloneTarget = (template, keepId = false) => {
   const { top, left, width, height } = template.getBoundingClientRect()
   const clone = template.cloneNode(true)
   const scrollTop =
@@ -65,7 +65,7 @@ export const cloneTarget = template => {
     document.body.scrollLeft ||
     0
 
-  clone.removeAttribute('id')
+  if (!keepId) clone.removeAttribute('id')
   clone.style.position = 'absolute'
   clone.style.top = `${top + scrollTop}px`
   clone.style.left = `${left + scrollLeft}px`
